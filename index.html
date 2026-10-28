@@ -1,123 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>황교수의 서재</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="대학 강의실과 서재, 그리고 극장 사이에서 — 책과 영화로 세상을 읽는 황교수의 공간입니다.">
+  <meta property="og:title" content="황교수의 서재">
+  <meta property="og:description" content="책과 영화로 세상을 읽는 사람, 황교수의 서재입니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.svg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // 저장된 테마를 렌더링 전에 적용해 깜빡임 방지
+    document.documentElement.classList.add('js');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
   <header class="site-header">
-    <nav class="nav">
-      <a href="#home" class="logo">📚 황교수의 서재</a>
-      <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
-      <ul class="nav-links">
+    <nav class="nav container" aria-label="주요 메뉴">
+      <a class="logo" href="#top">📚 황교수의 서재</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#about">소개</a></li>
         <li><a href="#teaching">강의</a></li>
         <li><a href="#books">독서</a></li>
         <li><a href="#movies">영화</a></li>
         <li><a href="#contact">연락처</a></li>
       </ul>
-      <button class="theme-toggle" aria-label="테마 전환">🌙</button>
+      <button class="theme-toggle" aria-label="다크 모드 전환">
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </nav>
   </header>
 
-  <main>
-    <!-- 히어로 -->
-    <section id="home" class="hero">
-      <div class="hero-inner">
-        <p class="hero-sub">대학 강의실과 서재, 그리고 극장 사이에서</p>
-        <h1>책과 영화로<br>세상을 읽는 사람</h1>
-        <p class="quote" id="quote">“책은 한 권 한 권이 하나의 세계다.”</p>
-        <a href="#about" class="btn">더 알아보기</a>
+  <main id="main">
+    <section class="hero container" id="top">
+      <div class="hero-text">
+        <p class="eyebrow">대학 강의실과 서재, 그리고 극장 사이에서</p>
+        <h1>책과 영화로<br><span class="accent">세상을 읽는 사람</span></h1>
+        <p class="lead quote" id="quote" aria-live="polite">“책은 한 권 한 권이 하나의 세계다.” — 윌리엄 워즈워스</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#about">더 알아보기</a>
+          <a class="btn btn-ghost" href="#contact">연락하기</a>
+        </div>
       </div>
+      <img class="profile" src="assets/profile.svg" alt="황교수 프로필" width="280" height="280">
     </section>
 
-    <!-- 소개 -->
-    <section id="about" class="section">
+    <section class="section container reveal" id="about">
       <h2 class="section-title">소개</h2>
       <div class="about-grid">
-        <div class="avatar">황</div>
-        <div>
+        <div class="about-text">
           <p>안녕하세요. 대학에서 학생들과 함께 배우고 가르치고 있습니다.
           강의실 밖에서는 책을 읽고 영화를 보며 생각을 넓히는 일을 가장 좋아합니다.</p>
           <p>좋은 이야기는 강의실에서도, 책 속에서도, 스크린 위에서도 사람을 바꾼다고 믿습니다.
           이 공간은 제가 읽고 본 것들, 그리고 가르치며 느낀 것들을 기록하는 곳입니다.</p>
-          <div class="stats">
-            <div class="stat"><span class="num" data-target="20">0</span><span>년 강의</span></div>
-            <div class="stat"><span class="num" data-target="500">0</span><span>권 독서</span></div>
-            <div class="stat"><span class="num" data-target="800">0</span><span>편 영화</span></div>
-          </div>
         </div>
+        <ul class="stats">
+          <li><span class="num" data-target="20">20+</span><span>년 강의</span></li>
+          <li><span class="num" data-target="500">500+</span><span>권 독서</span></li>
+          <li><span class="num" data-target="800">800+</span><span>편 영화</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- 강의 -->
-    <section id="teaching" class="section alt">
+    <section class="section container reveal" id="teaching">
       <h2 class="section-title">강의</h2>
-      <div class="cards">
+      <div class="card-grid">
         <article class="card">
-          <h3>교양 강의</h3>
-          <p>문학과 영화로 읽는 인간과 사회</p>
-          <span class="tag">학부</span>
+          <div class="card-body">
+            <span class="emoji" aria-hidden="true">🎓</span>
+            <h3>교양 강의</h3>
+            <p>문학과 영화로 읽는 인간과 사회</p>
+            <ul class="tags tags-sm"><li>학부</li></ul>
+          </div>
         </article>
         <article class="card">
-          <h3>전공 강의</h3>
-          <p>전공 기초 및 심화 과목</p>
-          <span class="tag">학부</span>
+          <div class="card-body">
+            <span class="emoji" aria-hidden="true">📐</span>
+            <h3>전공 강의</h3>
+            <p>전공 기초 및 심화 과목</p>
+            <ul class="tags tags-sm"><li>학부</li></ul>
+          </div>
         </article>
         <article class="card">
-          <h3>세미나</h3>
-          <p>함께 읽고 토론하는 독서 세미나</p>
-          <span class="tag">대학원</span>
+          <div class="card-body">
+            <span class="emoji" aria-hidden="true">💬</span>
+            <h3>세미나</h3>
+            <p>함께 읽고 토론하는 독서 세미나</p>
+            <ul class="tags tags-sm"><li>대학원</li></ul>
+          </div>
         </article>
       </div>
     </section>
 
-    <!-- 독서 -->
-    <section id="books" class="section">
+    <section class="section container reveal" id="books">
       <h2 class="section-title">최근 읽은 책</h2>
-      <div class="filters" data-group="books">
-        <button class="filter active" data-filter="all">전체</button>
-        <button class="filter" data-filter="문학">문학</button>
-        <button class="filter" data-filter="인문">인문</button>
-        <button class="filter" data-filter="과학">과학</button>
+      <div class="filters" data-group="books" role="group" aria-label="책 장르 필터">
+        <button class="filter active" data-filter="all" aria-pressed="true">전체</button>
+        <button class="filter" data-filter="문학" aria-pressed="false">문학</button>
+        <button class="filter" data-filter="인문" aria-pressed="false">인문</button>
+        <button class="filter" data-filter="과학" aria-pressed="false">과학</button>
       </div>
-      <div class="cards" id="book-list"></div>
+      <div class="card-grid" id="book-list"></div>
     </section>
 
-    <!-- 영화 -->
-    <section id="movies" class="section alt">
+    <section class="section container reveal" id="movies">
       <h2 class="section-title">인상 깊은 영화</h2>
-      <div class="filters" data-group="movies">
-        <button class="filter active" data-filter="all">전체</button>
-        <button class="filter" data-filter="드라마">드라마</button>
-        <button class="filter" data-filter="SF">SF</button>
-        <button class="filter" data-filter="고전">고전</button>
+      <div class="filters" data-group="movies" role="group" aria-label="영화 장르 필터">
+        <button class="filter active" data-filter="all" aria-pressed="true">전체</button>
+        <button class="filter" data-filter="드라마" aria-pressed="false">드라마</button>
+        <button class="filter" data-filter="SF" aria-pressed="false">SF</button>
+        <button class="filter" data-filter="고전" aria-pressed="false">고전</button>
       </div>
-      <div class="cards" id="movie-list"></div>
+      <div class="card-grid" id="movie-list"></div>
     </section>
 
-    <!-- 연락처 -->
-    <section id="contact" class="section">
+    <section class="section container reveal" id="contact">
       <h2 class="section-title">연락처</h2>
-      <p class="center">책이나 영화 이야기, 강의 관련 문의 모두 환영합니다.</p>
+      <p class="contact-lead">책이나 영화 이야기, 강의 관련 문의 모두 환영합니다.</p>
       <form class="contact-form" id="contact-form">
-        <input type="text" name="name" placeholder="이름" required>
-        <input type="email" name="email" placeholder="이메일" required>
-        <textarea name="message" rows="5" placeholder="메시지" required></textarea>
-        <button type="submit" class="btn">보내기</button>
-        <p class="form-msg" id="form-msg"></p>
+        <label>이름<input type="text" name="name" required></label>
+        <label>이메일<input type="email" name="email" required></label>
+        <label>메시지<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn btn-primary">보내기</button>
+        <p class="form-msg" id="form-msg" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <p>© <span id="year"></span> 황교수의 서재. All rights reserved.</p>
   </footer>
 
   <button class="to-top" id="to-top" aria-label="맨 위로">↑</button>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
